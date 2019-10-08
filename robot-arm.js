@@ -366,6 +366,7 @@ var RobotArm = function (canvas) {
                 self.setMap([["blue", "white", "green"]]);
                 break;
             case "exercise 5":
+                local.arm.position = 1;
                 self.setMap([[], ["red", "red", "red", "red", "red", "red", "red"]]);
                 break;
             case "exercise 6":
