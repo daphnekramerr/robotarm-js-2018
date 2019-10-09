@@ -8,17 +8,26 @@
             var robotArm = new RobotArm(canvas);
             robotArm.loadLevel("exercise 12");
 
-            for(i = 0; i < 8; i++){
+            var colorRed = 9;
+
+            for(i = 0; i < 9; i++){
                 robotArm.grab();
                 color = robotArm.scan();
                 if(color == 'red'){
-                    robotArm.moveRight();
+                    var distance = colorRed - i;
+                    for(var x = 0; x < distance; x++){
+                        robotArm.moveRight();
+                    }
                     robotArm.drop();
-                }
+                    for (var x = 0; x < distance; x++){
+                    robotArm.moveLeft();
+                    }
+                }   
                 else{
                     robotArm.drop();
                 }
                 robotArm.moveRight();
+
             }
 
             robotArm.speed = 500;
