@@ -8,13 +8,14 @@
             var robotArm = new RobotArm(canvas);
             robotArm.loadLevel("exercise 11");
 
-            for(i = 0; i < 8; i++){
+            for(i = 0; i < 9; i++){
                 robotArm.moveRight();
                 robotArm.grab();
                 color = robotArm.scan();
                 if(color == 'white'){
                     robotArm.moveRight();
                     robotArm.drop();
+                    i++;
                 }
                 else{
                     robotArm.drop();

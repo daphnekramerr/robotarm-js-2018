@@ -1,0 +1,42 @@
+<html>
+    <body>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <script src="./robot-arm.js"></script>
+        <script>
+            var canvas = document.getElementById("canvas");
+            var robotArm = new RobotArm(canvas);
+          
+            robotArm.randomLevel( 1, 8);
+
+            var i = 0; var a = 0; var b = 0; var c = 0;
+            for(i=0; i<8; i++){
+                c = c + 1;
+                robotArm.grab();
+                color = robotArm.scan();
+                if(color == null){
+                    break;
+                }
+                while(a<9){
+                    a++;
+                    robotArm.moveRight();
+                }
+                a = 0;
+                robotArm.drop();
+                while(b < 9){
+                    b++;
+                    robotArm.moveLeft();
+                
+                }
+                b = 0;
+                a = a + c;
+
+                robotArm.drop();
+                robotArm.moveLeft();
+            }
+
+            robotArm.speed = 500;
+            robotArm.run();
+          </script>
+
+    </body>
+</html>
